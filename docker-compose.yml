@@ -26,7 +26,7 @@ services:
 #####
   grafana:
     image: grafana/grafana:7.1.5
-    container_name: grafana_practica
+    container_name: grafana_practica 
     environment:
       - "GF_AUTH_DISABLE_LOGIN_FORM= true"
       - "GF_AUTH_ANONYMOUS_ENABLED= true"
