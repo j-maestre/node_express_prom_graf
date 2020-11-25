@@ -68,6 +68,7 @@ _Prometheus es un sistema de monitorización y de alerta, que cumple una serie d
 - Un sistema de discovery.
 
 Para empezar, creamos una carpeta llamada “prometheus” y metemos los archivos necesarios dentro:
+
 ![alt text](./img/a.png)
 
 Configuramos nuestro docker-compose de la siguiente manera
