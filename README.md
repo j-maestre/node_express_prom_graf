@@ -160,7 +160,7 @@ Le damos a “Apply” nuevamente y quedaria de la siguiente forma:
 
 Y guardamos el dashboard
 
-![alt text](./img/20.png)
+![alt text](./img/save.png)
 
 Ahora podemos hacer unas cuentas visitas a:
 - localhost:83
@@ -171,4 +171,4 @@ Ahora podemos hacer unas cuentas visitas a:
 
 Y comprobamos que funciona correctamente
 
-![alt text](./img/21.png)
+![alt text](./img/20.png)
