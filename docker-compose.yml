@@ -1,9 +1,9 @@
 version: '3'
 services:
 #####
-  web:
+  myapp_practica:
     # context: .
-    build: ./dockerfile_node_express/.
+    build: .
     container_name: myapp_practica
     ports:
       - "83:3000"
@@ -14,13 +14,15 @@ services:
     image: prom/prometheus:v2.20.1
     container_name: prometheus_practica
     volumes: 
-      - prometheus.yml:/etc/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     command: ["--config.file=/etc/prometheus/prometheus.yml"]
     networks:
     - network_practica
-    restart: on-failure
     ports:
       - "9090:9090"
+    depends_on: 
+      - myapp_practica
+    restart: on-failure
 #####
   grafana:
     image: grafana/grafana:7.1.5
@@ -34,9 +36,13 @@ services:
       - network_practica
     volumes:
       - myGrafanaVol:/var/lib/grafana
-      - ./datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+      - ./grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
     ports:
       - "3500:3000"
+    depends_on: 
+     - prometeus
+    links:
+     - prometeus
 volumes:
   prometheus.yml:
   myGrafanaVol:
