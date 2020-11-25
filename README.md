@@ -57,6 +57,8 @@ Nuestro docker-compose quedaria de la siguiente manera por el momento:
 
 ## Prometheus
 
+### ¿Que es?
+
 _Prometheus es un sistema de monitorización y de alerta, que cumple una serie de objetivos_
 
 - Consultar y almacenar la series de datos.
@@ -81,3 +83,92 @@ Verificamos que funciona correctamente accediendo al puerto:
 - localhost:9090
 
 ![alt text](./img/7.png)
+
+## Grafana
+
+### ¿Que es?
+
+_Grafana es una herramienta para visualizar datos de serie temporales._
+
+_A partir de una serie de datos recolectados obtendremos un panorama gráfico de la situación de una empresa u organización como veremos a continuación_
+
+Creamos una carpeta llamada “grafana” y metemos dentro los archivos necesarios:
+
+![alt text](./img/b.png)
+
+Configuramos nuestro docker-compose de la siguiente manera:
+
+![alt text](./img/8.png)
+
+Ejecutamos nuestro docker-compose para comprobar que funciona correctamente
+
+- sudo docker-compose up
+
+Accedemos al puerto donde se ejecuta nuestra aplicación para verificar que sigue funcionando correctamente
+
+- localhost:83
+
+![alt text](./img/9.png)
+
+Accedemos al puerto donde se ejecuta _prometheus_ para verificar que sigue funcionando correctamente
+
+- localhost:9090/targets
+
+![alt text](./img/10.png)
+
+Comprobamos que _grafana_ se ejecuta correctamente accediendo al puerto
+
+- localhost:3500
+
+![alt text](./img/11.png)
+
+En el menu de la parte izquierda, nos dirigimos al icono “+” y seleccionamos Dashboard, seguidamente hacemos click en “Add new panel”
+
+![alt text](./img/12.png)
+
+En la parte de las querys, seleccionamos “counterHomeEndpoint” para el primero
+
+![alt text](./img/13.png)
+
+Añadimos una nueva haciendo click en “+ Query”
+
+![alt text](./img/14.png)
+
+Y seleccionamos la opcion de “CounterMessageEndpoint”, y nos quedaria de la siguiente manera:
+
+![alt text](./img/15.png)
+
+Aplicamos los cambios realizados haciendo click arriba a la derecha en “Apply”:
+
+![alt text](./img/16.png)
+
+Después, creamos un nuevo panel repitiendo el proceso anterior, y en metrics ponemos lo siguiente:
+
+- sum(counterHomeEndpoint+counterMessageEndpoint)
+
+Para llevar el recuento de los dos endpoints. Quedaria de la siguiente manera:
+
+![alt text](./img/17.png)
+
+En el apartado de visualización seleccionamos la opción Stat
+
+![alt text](./img/18.png)
+
+Le damos a “Apply” nuevamente y quedaria de la siguiente forma:
+
+![alt text](./img/19.png)
+
+Y guardamos el dashboard
+
+![alt text](./img/20.png)
+
+Ahora podemos hacer unas cuentas visitas a:
+- localhost:83
+
+&&
+
+- localhost:83/messages
+
+Y comprobamos que funciona correctamente
+
+![alt text](./img/21.png)
