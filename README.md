@@ -44,3 +44,40 @@ Comprobamos que funciona correctamente para evitar futuros problemas
 sudo docker run -p 6600:3000 --name contenedor_node_prueba express_app
 ```
 
+Accedemos al puerto 6600 para comprobar que funciona correctamente:
+
+```
+localhost:6600
+```
+![alt text](./img/4.png)
+
+Nuestro docker-compose quedaria de la siguiente manera por el momento:
+
+![alt text](./img/5.png)
+
+## Prometheus
+
+_Prometheus es un sistema de monitorización y de alerta, que cumple una serie de objetivos_
+
+- Consultar y almacenar la series de datos.
+- Un Pushgateway para permitir que los trabajos efímeros y por lotes expongan sus métricas a Prometheus.
+- Exporters útil para casos donde no es factible instrumentar un sistema dado con métricas Prometheus directamente.
+- Un sistema de manejo de alarmado.
+- Un sistema de discovery.
+
+Para empezar, creamos una carpeta llamada “prometheus” y metemos los archivos necesarios dentro:
+![alt text](./img/a.png)
+
+Configuramos nuestro docker-compose de la siguiente manera
+
+![alt text](./img/6.png)
+
+Ejecutamos nuestro docker-compose para comprobar que está todo correcto
+```
+sudo docker-compose up
+```
+Verificamos que funciona correctamente accediendo al puerto:
+
+- localhost:9090
+
+![alt text](./img/7.png)
