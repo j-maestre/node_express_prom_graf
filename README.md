@@ -9,5 +9,5 @@ _Imagina un contenedor de carga cualquiera, que lleva dentro algo que puedes lle
 
 **Beneficios**
 En el caso de los desarrolladores, el uso de Docker hace que puedan centrarse en desarrollar su código sin preocuparse de si dicho código funcionará en la máquina en la que se ejecutará.
-
+ 
 ## ¿Que es DOCKER-COMPOSE?
